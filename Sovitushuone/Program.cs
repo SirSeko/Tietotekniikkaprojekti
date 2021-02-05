@@ -15,7 +15,7 @@ namespace Sovitushuone
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        //TESTI
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
