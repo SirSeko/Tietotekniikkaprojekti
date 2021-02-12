@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Sovitushuone.Data;
 
 namespace Sovitushuone
 {
@@ -24,6 +26,9 @@ namespace Sovitushuone
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<SovitushuoneContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SovitushuoneContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
