@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\timop\\.nuget\\packages\\": {},
+    "C:\\Users\\Miikka\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timop\\source\\repos\\Projekti\\Sovitushuone\\Sovitushuone.csproj",
+      "projectUniqueName": "C:\\Users\\Miikka\\Source\\Repos\\Vaatehuone\\Sovitushuone\\Sovitushuone.csproj",
       "projectName": "Sovitushuone",
-      "projectPath": "C:\\Users\\timop\\source\\repos\\Projekti\\Sovitushuone\\Sovitushuone.csproj",
-      "packagesPath": "C:\\Users\\timop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timop\\source\\repos\\Projekti\\Sovitushuone\\obj\\",
+      "projectPath": "C:\\Users\\Miikka\\Source\\Repos\\Vaatehuone\\Sovitushuone\\Sovitushuone.csproj",
+      "packagesPath": "C:\\Users\\Miikka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Miikka\\Source\\Repos\\Vaatehuone\\Sovitushuone\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\timop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Miikka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,8 +32,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://webd.savonia.fi/nuget/nuget/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
