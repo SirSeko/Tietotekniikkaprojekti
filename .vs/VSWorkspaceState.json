@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Sovitushuone",
+    "\\Sovitushuone\\Controllers",
+    "\\Sovitushuone\\Views",
     "\\Sovitushuone\\Views\\Home",
+    "\\Sovitushuone\\wwwroot",
     "\\Sovitushuone\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Sovitushuone",
+  "SelectedNode": "\\Sovitushuone\\Sovitushuone.sln",
   "PreviewInSolutionExplorer": false
 }
