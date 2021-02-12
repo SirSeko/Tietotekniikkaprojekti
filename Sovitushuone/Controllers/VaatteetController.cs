@@ -13,7 +13,7 @@ namespace Sovitushuone.Controllers
     public class VaatteetController : Controller
     {
         private readonly SovitushuoneContext _context;
-
+        //Bottitesti
         public VaatteetController(SovitushuoneContext context)
         {
             _context = context;
