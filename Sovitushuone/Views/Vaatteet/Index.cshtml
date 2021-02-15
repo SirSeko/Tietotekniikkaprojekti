@@ -31,11 +31,13 @@
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        const renderer = new THREE.WebGLRenderer();
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
+        //renderer.setClearColor(0xffffff, 0); 0x00ff00
+
         document.body.appendChild(renderer.domElement);
         const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const material = new THREE.MeshBasicMaterial({ color: 0x8000ff });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
@@ -48,8 +50,6 @@
         }
         animate();
     </script>
-    <div class="frame">
-        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2682&q=80" alt="Vaatteet">
-    </div>
+    
    
 </body>
