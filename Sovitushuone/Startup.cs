@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Sovitushuone.Data;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace Sovitushuone
 {
@@ -34,6 +35,14 @@ namespace Sovitushuone
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var options = new StaticFileOptions
+            {
+                ContentTypeProvider = new FileExtensionContentTypeProvider()
+            };
+            ((FileExtensionContentTypeProvider)options.ContentTypeProvider).Mappings.Add(
+            new KeyValuePair<string, string>(".obj", "text/plain"));
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -45,7 +54,7 @@ namespace Sovitushuone
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(options);
 
             app.UseRouting();
 
