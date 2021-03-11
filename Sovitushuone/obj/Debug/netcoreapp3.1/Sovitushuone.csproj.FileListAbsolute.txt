@@ -341,3 +341,4 @@ C:\Users\Miikka\Source\Repos\Vaatehuone\Sovitushuone\bin\Debug\netcoreapp3.1\run
 C:\Users\Miikka\Source\Repos\Vaatehuone\Sovitushuone\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Miikka\Source\Repos\Vaatehuone\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Vaatteet\Index.cshtml.g.cs
 C:\Users\Miikka\source\repos\Vaatehuone\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sovitushuone.cshtml.g.cs
+C:\Users\timop\source\repos\Projekti\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sovitushuone.cshtml.g.cs
