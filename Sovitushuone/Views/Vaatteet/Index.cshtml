@@ -34,21 +34,35 @@
         <script>
             const scene = new THREE.Scene();
             const renderer = new THREE.WebGLRenderer({ alpha: true });
+            var windowHalfX = 1000 / 2;
+            var windowHalfY = 700 / 2;
+            renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
 
-
-            scene.background = new THREE.Color(0xB1B1B1);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(1000, 700);
+            
+            
+        
+            
+            //scene.background = new THREE.Color(0xbbffff);
             const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 5000);
             camera.rotation.y = 45 / 180 * Math.PI;
             camera.position.x = 800;
             camera.position.y = 100;
             camera.position.z = 1000;
 
-            const light = new THREE.AmbientLight(0xB1B1B1, 100);
-            scene.add(light);
-            const directionallight = new THREE.DirectionalLight(0xffffff, 50)
-            directionallight.position.set(0, 1, 0);
-            directionallight.castShadow = true;
-            scene.add(directionallight);
+            const light = new THREE.AmbientLight(0xffffff, 0.25);
+            
+            keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 0.50);
+            keyLight.position.set(-100, 0, 100);
+
+            fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.50);
+            fillLight.position.set(100, 0, 100);
+
+            backLight = new THREE.DirectionalLight(0xffffff, 0.50);
+            backLight.position.set(100, 0, -100).normalize();
+
+            
           
 
 
@@ -56,12 +70,8 @@
             document.body.appendChild(renderer.domElement);
             const renderingParent = new THREE.Group();
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            const material = new THREE.MeshPhongMaterial({
-                color: 0x552811,
-                specular: 0x222222,
-                shininess: 25,
-              
-            });
+
+            
            
 
 
@@ -70,25 +80,25 @@
             // load a resource
             loader.load(
                 // resource URL
-                'objects/naisavatar.obj',
+                'objects/mies.obj',
                 // called when resource is loaded
                 function (object) {
 
-                    object.traverse(function (child) {
-
-                        if (child instanceof THREE.Mesh) {
-
-                            child.material.map = material;
-
-                        }
-
-                    });
-
+                    window.addEventListener('resize', onWindowResize, false);
                     renderingParent.scale.set(0.3, 0.3, 0.3);
                     renderingParent.add(object);
+                    object.traverse(object => {
+                        if (object.material) {
+                            object.material.vertexColors = true;
+                        }
+                    });
 
                     scene.add(renderingParent);
-                    
+
+                    scene.add(light);
+                    scene.add(keyLight);
+                    scene.add(fillLight);
+                    scene.add(backLight);
 
                     function animate() {
                         requestAnimationFrame(animate);
@@ -96,6 +106,13 @@
                         renderer.render(scene, camera);
                     }
 
+                    function onWindowResize() {
+                        windowHalfX = 1000 / 2;
+                        windowHalfY = 700 / 2;
+                        camera.aspect = 1000 / 700;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(1000, 700);
+                    }
                     animate();
                 },
                 // called when loading is in progresses
