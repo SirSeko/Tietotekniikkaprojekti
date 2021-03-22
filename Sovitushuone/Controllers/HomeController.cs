@@ -11,11 +11,28 @@ namespace Sovitushuone.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IBlobService _blobService;
+       
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBlobService blobService)
         {
             _logger = logger;
+            _blobService = blobService;
+        }
+        /*
+        [HttpGet("{blobName}")]
+        public async Task<IActionResult> GetBlob(string blobName)
+        {
+            string data = await _blobService.GetBlobAsync(blobName);
+
+            return File(data.Content, data.ContentType);
+        }*/
+        [HttpGet("list")]
+        public async Task<IActionResult> ListBlobs()
+
+        {
+            return Ok(await _blobService.ListBlobsAsync());
         }
 
         public IActionResult Index()

@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Sovitushuone.Data;
 using Microsoft.AspNetCore.StaticFiles;
+using Azure.Storage.Blobs;
+using Sovitushuone.Models;
 
 namespace Sovitushuone
 {
@@ -27,9 +29,10 @@ namespace Sovitushuone
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddSingleton(IServiceProvider => new BlobServiceClient(Configuration.GetValue<string>(key: "AzureBlobStorageConnectionString")));
             services.AddDbContext<SovitushuoneContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SovitushuoneContext")));
+            services.AddSingleton<IBlobService, BlobService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

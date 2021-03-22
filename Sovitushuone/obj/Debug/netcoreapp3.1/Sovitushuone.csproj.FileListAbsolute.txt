@@ -342,3 +342,6 @@ C:\Users\Miikka\Source\Repos\Vaatehuone\Sovitushuone\bin\Debug\netcoreapp3.1\run
 C:\Users\Miikka\Source\Repos\Vaatehuone\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Vaatteet\Index.cshtml.g.cs
 C:\Users\Miikka\source\repos\Vaatehuone\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sovitushuone.cshtml.g.cs
 C:\Users\timop\source\repos\Projekti\Sovitushuone\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sovitushuone.cshtml.g.cs
+C:\Users\timop\source\repos\Projekti\Sovitushuone\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\timop\source\repos\Projekti\Sovitushuone\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\timop\source\repos\Projekti\Sovitushuone\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
