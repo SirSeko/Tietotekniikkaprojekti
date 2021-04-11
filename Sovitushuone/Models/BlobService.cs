@@ -16,10 +16,10 @@ namespace Sovitushuone.Models
             _blobServiceClient = blobServiceClient;
         }
 
-        public async Task<BlobInfo> GetBlobAsync(string name)
+        public async Task<BlobInfo> GetBlobAsync(string blobName)
         {
             var containerClient = _blobServiceClient.GetBlobContainerClient("models");
-            var blobClient = containerClient.GetBlobClient(name);
+            var blobClient = containerClient.GetBlobClient(blobName);
             var blobDownloadInfo = await blobClient.DownloadAsync();
             return new BlobInfo(blobDownloadInfo.Value.Content, blobDownloadInfo.Value.ContentType);
         }
@@ -37,12 +37,7 @@ namespace Sovitushuone.Models
             return items;
         }
 
-        Task IBlobService.GetBlobAsync(string blobName)
-        {
-            throw new NotImplementedException();
-        }
-
-       
+        
     }
     
 }

@@ -20,14 +20,16 @@ namespace Sovitushuone.Controllers
             _logger = logger;
             _blobService = blobService;
         }
-        /*
+        
         [HttpGet("{blobName}")]
-        public async Task<IActionResult> GetBlob(string blobName)
-        {
-            string data = await _blobService.GetBlobAsync(blobName);
 
-            return File(data.Content, data.ContentType);
-        }*/
+        public async Task<IActionResult> GetBlobAsync(string blobName)
+        {
+           
+            var data = await  _blobService.GetBlobAsync(blobName);
+            
+            return View();
+        }
         [HttpGet("list")]
         public async Task<IActionResult> ListBlobs()
 

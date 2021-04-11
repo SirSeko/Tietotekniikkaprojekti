@@ -5,7 +5,8 @@ namespace Sovitushuone.Models
 {
     public interface IBlobService
     {
-        Task GetBlobAsync(string blobName);
+        Task<BlobInfo> GetBlobAsync(string blobName);
+       
         public Task<IEnumerable<string>> ListBlobsAsync();
 
         
