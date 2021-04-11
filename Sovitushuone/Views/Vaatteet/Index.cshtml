@@ -72,30 +72,7 @@
             document.body.appendChild(renderer.domElement);
             const renderingParent = new THREE.Group();
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            /*
-            const mtlLoader = new THREE.MTLLoader();
-            mtlLoader.setPath('objects/');
-            mtlLoader.load('Tpaita.mtl', function (materials) {
-
-                materials.preload();
-
-               
-                loader.setMaterials(materials);
-                //loader.setPath('objects/');
-                loader.load('Tpaita.obj', function (object) {
-
-                    mesh = object;
-                    mesh.position.y = -50;
-                    scene.add(mesh);
-
-                });
-
-              }); */
-
-
-
            
-            
             loader.load(
                 // resource URL
                 'objects/Tpaita.obj',
@@ -104,11 +81,13 @@
                 function (object) {
 
                     window.addEventListener('resize', onWindowResize, false);
-                    renderingParent.scale.set(0.3, 0.3, 0.3);
+                    renderingParent.scale.set(0.4, 0.4, 0.4);
+                    
                     renderingParent.add(object);
                     object.traverse(object => {
                         if (object.material) {
                             object.material.vertexColors = true;
+                            object.position.set(0,200, 10)
                         }
                     });
 
