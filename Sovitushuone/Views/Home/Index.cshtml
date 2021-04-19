@@ -17,5 +17,9 @@
     <button type="submit" name="login">Kirjaudu sisään</button>
 </div>
 <div class="text-center">
-<button type="submit" name="register">Rekisteröidy</button>
+    <button type="submit" name="register">Rekisteröidy</button>
+    <br>
+    <a href="@Url.Action("Index", null, new { area = string.Empty, controller = "vaatteet" })">
+        <span>Vaatehuone</span>
+    </a>
 </div>
