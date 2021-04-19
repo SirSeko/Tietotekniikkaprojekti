@@ -26,6 +26,7 @@
     <h1>Vaatteet</h1>
 
     <body>
+        
         <script src="js/three.js"></script>
         <script src="~/js/OBJLoader.js"></script>
         <script src="~/js/MTLLoader.js"></script>
@@ -33,6 +34,8 @@
 
 
         <script>
+             //Luodaan uusi ThreeJS scene ja renderer
+             //Maaritellaan asetukset
             const scene = new THREE.Scene();
             const renderer = new THREE.WebGLRenderer({ alpha: true });
             var windowHalfX = 1000 / 2;
@@ -45,12 +48,13 @@
 
 
 
-            //scene.background = new THREE.Color(0xbbffff);
+            //Perspektiivikameran asetukset ja luonti
             const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 5000);
             camera.rotation.y = 45 / 180 * Math.PI;
             camera.position.x = 800;
             camera.position.y = 100;
             camera.position.z = 1000;
+            //Valojen luonti ja asetukset
 
             const light = new THREE.AmbientLight(0xffffff, 0.25);
 
@@ -63,31 +67,32 @@
             backLight = new THREE.DirectionalLight(0xffffff, 0.50);
             backLight.position.set(100, 0, -100).normalize();
 
+            //Objektinlataaja
             const loader = new THREE.OBJLoader();
 
 
 
-
+            //Rendererin asetukset
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
             const renderingParent = new THREE.Group();
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
-           
+
             loader.load(
-                // resource URL
+                // objektin osoite
                 'objects/Tpaita.obj',
 
-                // called when resource is loaded
+                // Funktio kutsutaan kun lataus on valmis
                 function (object) {
 
                     window.addEventListener('resize', onWindowResize, false);
+                    // objektin koko ja tekstuuri
                     renderingParent.scale.set(0.4, 0.4, 0.4);
-                    
                     renderingParent.add(object);
                     object.traverse(object => {
                         if (object.material) {
                             object.material.vertexColors = true;
-                            object.position.set(0,200, 10)
+                            object.position.set(0, 200, 10)
                         }
                     });
 
@@ -99,28 +104,29 @@
                 },
 
 
-                // called when loading is in progresses
+                // kutsutaan kun lataus on kesken
                 function (xhr) {
 
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 
                 },
-                // called when loading has errors
+                // kutsutaan virhetilanteessa
                 function (error) {
 
                     console.log('An error happened');
 
                 }
             );
-            // load a resource
+            
             loader.load(
-                // resource URL
+                // objektin osoite
                 'objects/mies.obj',
 
-                // called when resource is loaded
+                
                 function (object) {
 
                     window.addEventListener('resize', onWindowResize, false);
+                     // objektin koko ja tekstuuri
                     renderingParent.scale.set(0.3, 0.3, 0.3);
                     renderingParent.add(object);
                     object.traverse(object => {
@@ -140,26 +146,26 @@
                 },
 
 
-                // called when loading is in progresses
+                 // kutsutaan kun lataus on kesken
                 function (xhr) {
 
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 
                 },
-                // called when loading has errors
+                // kutsutaan virhetilanteessa
                 function (error) {
 
                     console.log('An error happened');
 
                 }
             );
-
+             // renderoidaan scene
             function animate() {
                 requestAnimationFrame(animate);
 
                 renderer.render(scene, camera);
             }
-
+             // kutsutaan ikkunankoon muutoksessa
             function onWindowResize() {
                 windowHalfX = 1000 / 2;
                 windowHalfY = 700 / 2;

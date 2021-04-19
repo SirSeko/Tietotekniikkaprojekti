@@ -9,6 +9,7 @@ namespace Sovitushuone.Data
 {
     public class SovitushuoneContext : DbContext
     {
+        // Vaatehuone context
         public SovitushuoneContext (DbContextOptions<SovitushuoneContext> options)
             : base(options)
         {

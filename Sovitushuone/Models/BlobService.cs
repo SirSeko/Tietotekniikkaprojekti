@@ -9,6 +9,7 @@ namespace Sovitushuone.Models
 {
     public class BlobService : IBlobService
     {
+        // BlobPalvelun asetukset ja taskit
         private readonly BlobServiceClient _blobServiceClient;
 
         public BlobService(BlobServiceClient blobServiceClient)

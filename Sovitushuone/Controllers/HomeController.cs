@@ -20,7 +20,7 @@ namespace Sovitushuone.Controllers
             _logger = logger;
             _blobService = blobService;
         }
-        
+        //Testataan blobien hakua azuresta
         [HttpGet("{blobName}")]
 
         public async Task<IActionResult> GetBlobAsync(string blobName)
@@ -30,6 +30,7 @@ namespace Sovitushuone.Controllers
             
             return View();
         }
+        //Testataan blobien hakua azuresta listaan
         [HttpGet("list")]
         public async Task<IActionResult> ListBlobs()
 
